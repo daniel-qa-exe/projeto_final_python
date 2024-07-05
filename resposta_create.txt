@@ -1,0 +1,8 @@
+{
+    "id": 95,
+    "username": "cecilia75",
+    "email": "thales54@example.org",
+    "phone": "+55 (031) 7724-2300",
+    "address": "Alameda de S\u00e1, 958\nPlanalto\n23023-051 Moura / BA",
+    "cpf": "059.872.413-32"
+}
