@@ -1,8 +1,8 @@
 {
-    "id": 95,
-    "username": "cecilia75",
-    "email": "thales54@example.org",
-    "phone": "+55 (031) 7724-2300",
-    "address": "Alameda de S\u00e1, 958\nPlanalto\n23023-051 Moura / BA",
-    "cpf": "059.872.413-32"
+    "id": 164,
+    "username": "taraujo",
+    "email": "da-cunhamaria-cecilia@example.org",
+    "phone": "+55 04 92957-8535",
+    "address": "Setor Ana Porto, 44\nVila Nova\n80968055 Vieira do Norte / CE",
+    "cpf": "642.985.307-10"
 }

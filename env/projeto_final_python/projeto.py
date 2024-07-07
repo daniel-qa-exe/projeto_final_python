@@ -3,7 +3,7 @@ import requests
 from faker import Faker 
 import json
 
-#ativando o faker
+#"ativando" o faker - instanciando
 fake = Faker('pt_BR')
 
 #função para enviar os dados 
@@ -14,7 +14,7 @@ def enviar_dados_post(url, dados):
 
 #função para processar a resposta da requisição
 def processar_resposta(response):
-    # Verificar se a requisição foi bem-sucedida (código 200)
+    # Verificar se a requisição foi bem-sucedida (código 200 ou 201)
     if response.status_code == 200 or response.status_code == 201:
         return response.json()
     else:
@@ -25,7 +25,8 @@ def processar_resposta(response):
 #função para salvar a resposta json em um arquivo txt
 def save_json(dados_json, nome_arquivo):
     try:
-        with open(nome_arquivo, 'w') as file:
+        with open(nome_arquivo, 'w') as file: 
+            #pegar os dados, inserir no arquivo conforme a linha acima e idente no formato 4 
             json.dump(dados_json, file, indent=4)
             print(f"Resposta salva em '{nome_arquivo}'.")
     except IOError as e:
@@ -36,7 +37,7 @@ dados ={
     "username": fake.user_name(),
     "email": fake.email(),
     "password": fake.password(length=10),
-    "phone": fake.phone_number(),
+    "phone": fake.cellphone_number(),
     "address": fake.address(),
     "cpf": fake.cpf()
 }
@@ -47,11 +48,12 @@ dados_login = {
     "password": dados["password"]
 }
 
-#variaveis de url para uso nas funções onde seram feitas as requisições
+#variaveis de url(endpoints) para uso nas funções onde seram feitas as requisições
 url_create_user = "https://desafiopython.jogajuntoinstituto.org/api/users/"
 url_login = "http://desafiopython.jogajuntoinstituto.org/api/users/login/"
 
-#envia dados via post para criar usuario  
+#----------criação de usuario---------
+#envia dados via post para criar usuario  e guarda a resposta na variável 
 resposta_create = enviar_dados_post(url= url_create_user, dados= dados)
 
 #processa a resposta do post feito acima
@@ -60,6 +62,7 @@ dados_json_create = processar_resposta(response= resposta_create)
 #salvar resposta em um arquivo txt
 save_json(dados_json= dados_json_create, nome_arquivo= 'resposta_create.txt')
 
+#---------login de usuario--------------
 #envia dados via post para fazer login 
 resposta_login = enviar_dados_post(url= url_login, dados= dados_login)
 
