@@ -60,7 +60,7 @@ resposta_create = enviar_dados_post(url= url_create_user, dados= dados)
 dados_json_create = processar_resposta(response= resposta_create)
 
 #salvar resposta em um arquivo txt
-save_json(dados_json= dados_json_create, nome_arquivo= 'resposta_create.txt')
+save_json(dados_json= dados_json_create, nome_arquivo= 'resposta_create.json')
 
 #---------login de usuario--------------
 #envia dados via post para fazer login 
@@ -70,4 +70,4 @@ resposta_login = enviar_dados_post(url= url_login, dados= dados_login)
 dados_json__login = processar_resposta(response= resposta_login)
 
 #salvar resposta em um arquivo json
-save_json(dados_json= dados_json__login, nome_arquivo= 'resposta_login.txt')
+save_json(dados_json= dados_json__login, nome_arquivo= 'resposta_login.json')
